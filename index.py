@@ -17,7 +17,6 @@ print("8.  Calculate for Pythagoream Theorum")
 print("9.  Calculate Triginomic Functions")
 print("10. Calculate for Surface Area")
 print("11. Calculate for Volume")
-print("12. Calculate Sigma Notation")
 choice1 = int(input("Choose a service: "))
 if (choice1 == 1):
     N = int(input("Enter a number to be factored: "))
@@ -399,13 +398,6 @@ elif (choice1 == 11):
 
     else:
         print("ERROR: Please enter a valid number from the menu above")
-
-elif (choice1 == 12):
-    a = int(input("Enter the lower limit: "))
-    n = int(input("Enter the upper limit: "))
-    k = int(input("Enter the index of sums: "))
-
-    print(np.sum(range(a, n)))
-
+        
 else:
     print("ERROR: Please enter a valid number from the menu above")
