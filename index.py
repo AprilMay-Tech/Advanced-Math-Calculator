@@ -1,9 +1,19 @@
 import numpy as np
 import math
 from math import factorial
+from math import comb
+from math import sqrt
+import fractions
+from fractions import Fraction
+from matplotlib import pyplot as plt
+import sympy as sy
+from sympy import fibonacci
+import matplotlib.pyplot as plt
+import itertools
+import operator
 
 print("Welcome to MATRIXNumber Python Calculator!")
-print("This is version 1.0; make sure to check for updates!")
+print("This is version 1.5; make sure to check for updates!")
 print("")
 print("Services available:")
 print("1.  Find all Factors")
@@ -17,6 +27,15 @@ print("8.  Calculate for Pythagoream Theorum")
 print("9.  Calculate Triginomic Functions")
 print("10. Calculate for Surface Area")
 print("11. Calculate for Volume")
+print("12. Calculate Permutation")
+print("13. Calculate Combination")
+print("14. Add, Subtract, Multiply, and Divide Fractions")
+print("15. Quadratic Formula")
+print("16. Multiplication / Division")
+print("17. Distance Formula")
+print("18. Synthetic Division")
+print("19. Convert Decimals and Fractions")
+print("20. Display Fibonacci Sequence")
 choice1 = int(input("Choose a service: "))
 if (choice1 == 1):
     N = int(input("Enter a number to be factored: "))
@@ -25,8 +44,8 @@ if (choice1 == 1):
             print(x, end=" ")
                             
 elif (choice1 == 2):
-    N = int(input("Enter a number to be put to the nth power: "))
-    m = int(input("Enter the nth power: "))
+    N = float(input("Enter a number to be put to the nth power: "))
+    m = float(input("Enter the nth power: "))
 
     num = np.power(N, m)
     print(num)
@@ -72,17 +91,18 @@ elif (choice1 == 5):
         print("ERROR: Please enter a valid number from the menu above")
 
 elif (choice1 == 6):
-    N = int(input("Does your logarithm have a base? [1 = Y / 2 = n]: "))
-    if (N == 1):
-        a = float(input("Enter the Logarithm: "))
+    N = input("Does your logarithm have a base? [Y / n]: ")
+    if (N == 'Y'):
+        a = float(input("Enter the Argument: "))
         b = float(input("Enter the Logarithm Base: "))
 
         print(math.log(a, b))
 
-    elif (N == 2):
-        a = float(input("Enter the Logarithm: "))
+    elif (N == 'n'):
+        a = float(input("Enter the Argument: "))
+        x = float(input("Enter the Exponent: "))
 
-        print(math.log(a))
+        print(math.log(a, exp(x)))
 
     else:
         print("ERROR: Please enter a valid number from the menu above")
@@ -398,6 +418,159 @@ elif (choice1 == 11):
 
     else:
         print("ERROR: Please enter a valid number from the menu above")
+
+elif (choice1 == 12):
+    a = int(input("Enter the 'n' value: "))
+    b = int(input("Enter the 'k' value: "))
+
+    c = a - b
+    x = factorial(a)
+    X = factorial(c)
+    print(x / X)
+
+elif (choice1 == 13):
+    a = int(input("Enter the 'n' value: "))
+    b = int(input("Enter the 'k' value: "))
+
+    print(comb(a, b))
+
+elif (choice1 == 14):
+    print("Services available:")
+    print("1. Addition")
+    print("2. Subraction")
+    print("3. Multiplication")
+    print("4. Division")
+    N = int(input("Chose a service: "))
+    if (N == 1):
+        a = int(input("Enter the 'numerator' value of Fraction 1: "))
+        b = int(input("Enter the 'denominator' value of Fraction 1: "))
+        c = int(input("Enter the 'numerator' value of Fraction 2: "))
+        d = int(input("Enter the 'denominator' value of Fraction 2: "))
+
+        x = fractions.Fraction(a, b)
+        y = fractions.Fraction(c, d)
+        print(x + y)
+
+    elif (N == 2):
+        a = int(input("Enter the 'numerator' value of Fraction 1: "))
+        b = int(input("Enter the 'denominator' value of Fraction 1: "))
+        c = int(input("Enter the 'numerator' value of Fraction 2: "))
+        d = int(input("Enter the 'denominator' value of Fraction 2: "))
+
+        x = fractions.Fraction(a, b)
+        y = fractions.Fraction(c, d)
+        print(x - y)
+
+    elif (N == 3):
+        a = int(input("Enter the 'numerator' value of Fraction 1: "))
+        b = int(input("Enter the 'denominator' value of Fraction 1: "))
+        c = int(input("Enter the 'numerator' value of Fraction 2: "))
+        d = int(input("Enter the 'denominator' value of Fraction 2: "))
+
+        x = fractions.Fraction(a, b)
+        y = fractions.Fraction(c, d)
+        print(x * y)
+
+    elif (N == 4):
+        a = int(input("Enter the 'numerator' value of Fraction 1: "))
+        b = int(input("Enter the 'denominator' value of Fraction 1: "))
+        c = int(input("Enter the 'numerator' value of Fraction 2: "))
+        d = int(input("Enter the 'denominator' value of Fraction 2: "))
+
+        x = fractions.Fraction(a, b)
+        y = fractions.Fraction(c, d)
+        print(x / y)
+
+    else:
+        print("ERROR: Please enter a valid number from the menu above")
+
+elif (choice1 == 15):
+    a = float(input("Enter the 'a' value: "))
+    b = float(input("Enter the 'b' value: "))
+    c = float(input("Enter the 'c' value: "))
+
+    y = (b ** 2 - (4 * a * c))
+    xp = ((-b + (y) ** 0.5) / 2 * a)
+    xn = ((-b - (y) ** 0.5) / 2 * a)
+    print(f"Discriminent: {y}, Roots: {xp}, {xn}")
+    if (y == 0):
+        print("One real root")
+
+    elif (y > 0):
+        print("Two real roots")
+
+    elif (y < 0):
+        print("No real roots")
+
+    else:
+        print("Invalid character")
         
+elif (choice1 == 16):
+    print("Services available:")
+    print("1. Multiplication")
+    print("2. Division")
+    N = int(input("Chose a service: "))
+    if (N == 1):
+        a = float(input("Enter the first value: "))
+        b = float(input("Enter the second value: "))
+
+        print(a * b)
+
+    elif (N == 2):
+        a = float(input("Enter the first value: "))
+        b = float(input("Enter the second value: "))
+
+        print(a / b)
+
+    else:
+        print("ERROR: Please enter a valid number from the menu above")
+
+elif (choice1 == 17):
+    x1 = float(input("Enter the 'x1' value: "))
+    y1 = float(input("Enter the 'y1' value: "))
+    x2 = float(input("Enter the 'x2' value: "))
+    y2 = float(input("Enter the 'y2' value: "))
+
+    print(math.sqrt(math.exp2(x1 - x2) + math.exp2(y1 - y1)))
+
+elif (choice1 == 18):
+    print("This is for quadratic formulas right now")
+    a = float(input("Enter the 'a' value: "))
+    b = float(input("Enter the 'b' value: "))
+    c = float(input("Enter the 'c' value: "))
+    d = int(input("Enter the 'root' value: "))
+
+    coefficients = [a, b, c]
+    a, b, c = coefficients
+
+    if (len(coefficients) != 3):
+        raise ValueError("You must have 3 coefficients")
+
+    x = [a, a * d + b, (a * d + b) * d + c]
+    print(f"{coefficients[0]}x^2 + {coefficients[1]}x + {coefficients[2]} / {d} is {x}")
+
+elif (choice1 == 19):
+    print("Services available:")
+    print("1. Decimal -> Fraction")
+    print("2. Fraction -> Decimal")
+    N = int(input("Chose a service: "))
+    if (N == 1):
+        a = float(input("Enter the decimal: "))
+
+        print(fractions.Fraction(a))
+
+    elif (N == 2):
+        a = int(input("Enter the numerator value: "))
+        b = int(input("Enter the denominator value: "))
+
+        print(a / b)
+
+    else:
+        print("ERROR: Please enter a valid number from the menu above")
+
+elif (choice1 == 20):
+    n = int(input("Enter the number of Fibonacci Sequence to be displayed: "))
+    print(fibonacci(n))
+
 else:
     print("ERROR: Please enter a valid number from the menu above")
