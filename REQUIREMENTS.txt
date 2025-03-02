@@ -1,7 +1,9 @@
 python3==3.13.1-2
 numpy==2.2.3
 math
+math.factorial
+math.comb
+fractions
+fractions.Fraction
 Fraction==2.2.0
 sympy==1.13.1
-itertools
-operator
