@@ -243,8 +243,32 @@ elif (choice1 == 17):
         print("\n")
 
 elif (choice1 == 18):
-    N = int(input("Enter the number of Fibonacci Sequence to be displayed:\n"))
-    print(fibonacci(N))
+    def fib(N, prev1, prev2):
+        if (N < 3):
+            return
+        
+        fn = prev1 + prev2
+        prev2 = prev1
+        prev1 = fn
+        print(fn, end="")
+        fib(n - 1, prev1, prev2)
+
+    def print_fib(N):
+        if (N < 1):
+            print("ERROR: This number is invalid")
+
+        elif (N == 1):
+            print("0")
+
+        elif (N == 2):
+            print("0 1")
+
+        else:
+            print("0 1", end="")
+            fib(n, 1, 0)
+
+        if __name__ == "__main__":
+            N = int(input("Enter the number of Fibonacci Sequence to be displayed:\n"))
 
 elif (choice1 == 19):
     print("Services available:")
