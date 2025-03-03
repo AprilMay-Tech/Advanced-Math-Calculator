@@ -4,7 +4,7 @@ from math import factorial
 from math import comb
 import fractions
 from fractions import Fraction
-from scypy import fibonacci
+from scipy import fibonacci
 
 print("Welcome to the AprilMay, Tech MathCalculator!")
 print("This is version 2.0, make sure to check for updates")
