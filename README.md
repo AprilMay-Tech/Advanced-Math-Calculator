@@ -1,4 +1,4 @@
-# MATRIXMath-Calculator
+# Advanced-Math-Calculator
 This is a python program, so you may need to use certain commands to run the file index.py effectively. This is how I would recommend running the python program:
 
 Bash (Windows, Mac)
